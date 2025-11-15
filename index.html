@@ -388,4 +388,113 @@
                         <button class="info-tab" data-target="collab-info">Resources & Collaboration</button>
             </div>
                     <div class="info-content-panels">
-                        <div class="info-panel active" id="luau-i
+                        <div class="info-panel active" id="luau-info">
+                            <i class="fa-solid fa-robot"></i>
+                            <h3>Luau & Roblox Development</h3>
+                            <p>Get specialized help with Luau 5.1, reverse engineering, script support, and bytecode analysis. Share your creations and get valuable feedback from the community.</p>
+                        </div>
+                        <div class="info-panel" id="dotnet-info">
+                            <i class="fa-solid fa-laptop-code"></i>
+                            <h3>.NET Framework & C#</h3>
+                            <p>Find fast, actionable solutions for your C# and .NET projects. Get guidance on creating stunning UIs with Visual Studio and share your finished applications with others.</p>
+                        </div>
+                        <div class="info-panel" id="collab-info">
+                            <i class="fa-solid fa-users-gear"></i>
+                            <h3>Resources & Collaboration</h3>
+                            <p>Access detailed guides, community-made tools, and boilerplate scripts. Connect with other skilled developers to launch and collaborate on new, exciting projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="benefits">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Your Hub for Growth & Innovation</h2>
+                    <p>Whether you're here to learn, share, or build, we provide the tools and connections you need to succeed.</p>
+                </div>
+                <div class="benefits-grid">
+                    <div class="benefit-card fade-in">
+                        <h3>Learn & Grow</h3>
+                        <p>Accelerate your learning curve with direct access to experts and curated educational content.</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check-circle"></i><span>Expert help for Luau & C#</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Access detailed tutorials & guides</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Receive constructive code feedback</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Stay updated on new tech</span></li>
+                        </ul>
+                        <a href="https://discord.gg/639cRHj8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Start Learning</a>
+                    </div>
+                    <div class="benefit-card main-focus fade-in" style="transition-delay: 0.1s;">
+                        <div class="main-focus-badge">Main Focus</div>
+                        <h3>Collaborate</h3>
+                        <p>Connect with like-minded individuals to bring your most ambitious ideas to life.</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check-circle"></i><span>Find partners for your projects</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Join a team of skilled developers</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Contribute to open-source tools</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Participate in community projects</span></li>
+                        </ul>
+                        <a href="https://discord.gg/639cRHj8" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Find Teammates</a>
+                    </div>
+                    <div class="benefit-card fade-in" style="transition-delay: 0.2s;">
+                        <h3>Share & Showcase</h3>
+                        <p>A dedicated platform to share your finished projects and get the recognition you deserve.</p>
+                        <ul class="features-list">
+                            <li><i class="fa-solid fa-check-circle"></i><span>Share your finished applications</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Post unique scripts & tools</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Get valuable community feedback</span></li>
+                            <li><i class="fa-solid fa-check-circle"></i><span>Promote your portfolio</span></li>
+                        </ul>
+                        <a href="https://discord.gg/639cRHj8" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Showcase Your Work</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="get-started">
+            <div class="container cta-section fade-in">
+                <div class="section-header" style="margin-bottom: 2rem;"><h2>Ready to Build?</h2><p>Join our community on Discord to get instant access to resources, find collaborators, and start growing today.</p></div>
+                <a href="https://discord.gg/639cRHj8" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> Join the Community Today</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container footer-content">
+            <div class="nav-brand"><i class="fa-solid fa-gem"></i> Cerium</div>
+            <div class="footer-socials">
+                <a href="https://discord.gg/639cRHj8" target="_blank" rel="noopener noreferrer" aria-label="Join our Discord"><i class="fa-brands fa-discord"></i></a>
+            </div>
+            <p>&copy; 2024 Cerium. All Rights Reserved. Built by developers, for developers.</p>
+        </div>
+    </footer>
+    <a href="#home" id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); }});
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+            
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileNav = document.querySelector('.mobile-nav');
+            const mobileMenuIcon = mobileMenuBtn.querySelector('i');
+            mobileMenuBtn.addEventListener('click', () => {
+                const isOpen = mobileNav.classList.toggle('open');
+                document.body.classList.toggle('no-scroll', isOpen);
+                mobileMenuIcon.className = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            const infoTabs = document.querySelectorAll('.info-tab');
+            infoTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelector('.info-tab.active').classList.remove('active');
+                    document.querySelector('.info-panel.active').classList.remove('active');
+                    tab.classList.add('active');
+                    const targetPanel = document.getElementById(tab.dataset.target);
+                    if (targetPanel) targetPanel.classList.add('active');
+                });
+            });
+        });
+    </script>
